@@ -1,0 +1,49 @@
+@charset "UTF-8";
+/* ===================
+copyright 진아름 all rights reserved
+-------------------------------------
+The writer : 진아름
+Time for first: 2019-01-11,
+Time for refresh lately:
+Inheritor : 이노아이티, 더하기빼기, 진아름, 문세미
+====================*/
+
+// 이 시트는 부분화 된scss를 호출하며, html에 link rel로 호출되는 페이지.
+
+/* ===================
+
+ ! 가이드라인
+
+ 호출 순서 ( 앞에 기재된 scss를 먼저 호출 )
+ 1. base : reset.css / _font.scss (초기화/폰트)
+ 2. helper : mixin.scss (SASS믹스인/함수)
+ 3. layout : _components / _header.scss / _footer.scss (홈페이지의 크고 작은 구성요소)
+ 4. pages : main / sub 특성화된 scss
+ 5. vendor : 외부 라이브러리와 프레임워크에서 제공하는 CSS파일
+
+ ※ reset을 제외한 scss앞에 _(언더바)를 붙일 것.
+   _(언더바)붙인 파일은 부분화 파일임을 명시함.
+
+====================== */
+
+//Depth level 1. [ base : reset -> font ]
+@import "base/reset.css";
+@import "base/font";
+//Depth level 2. [ helper : mixin ]
+@import "helper/mixin";
+//Depth level 3. [ layout : components -> layout -> header -> footer  ]
+@import "layout/component";
+@import "layout/layout";
+@import "layout/header";
+@import "layout/footer";
+//Depth level 4. [ pages : main / sub / product ]
+@import "pages/main";
+@import "pages/sub";
+@import "pages/product";
+
+//Depth level 5. [ vendor ]
+@import "vendor/slick-theme.css";
+@import "vendor/slick.css";
+@import "vendor/swiper.css";
+@import "vendor/jquery.bxslider.css";
+@import "vendor/vendor";

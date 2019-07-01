@@ -1,0 +1,269 @@
+@charset "UTF-8";
+
+/* --][ mobile main visual ][-- */
+.mobmainVisual{
+   position: relative;
+   width:100%;height:780px;
+   overflow: hidden;
+   .mobVisual{
+      width:100%;height:100%;
+   }
+   .slider-text{
+      position: absolute; top:22%; left:50%; transform:translateX(-50%);
+      display: inline-block;
+      width:auto;height:auto;
+      z-index:3;
+   }
+}
+.mobSearch{
+   position: absolute;bottom:0;left:0;right:0;
+   width:100%;
+   //height:282px;
+   background:rgba(123,95,67,0.8);
+   z-index:1;
+   .hotelTab{
+      width: 100%;height:50px;
+      border-bottom: 1px solid #e8dfcc;
+      @include boxsizing;
+      li{
+         position: relative;
+         width:50%;height:100%;line-height:50px;
+         float:left;cursor: pointer;
+         &:first-child{border-right:1px solid #e8dfcc;@include boxsizing;}
+         p{font-family:"notoK";font-size:18px;color:#ffffff;text-align:center;}
+         &.active{
+            background:#fff;
+            p{color:#977a52;}
+            &:after{
+               content:"";
+               position: absolute; top:100%; left:50%; transform:translateX(-50%);
+               width: 0;
+               height: 0;
+               border-style: solid;
+               border-width: 9px 9px 0 9px;
+               border-color: #ffffff transparent transparent transparent;
+
+            }
+         }
+      }
+   }
+   .searching{padding:20px 0;}
+   .checkWrap{
+      >div{
+         float:left;
+         margin-right:2.2%;
+         &:last-child{margin-right:0;}
+         @include breakPoint(510px){
+            margin-right:1.8%;
+         }
+         @include breakPoint(620px){
+            &:nth-child(1),&:nth-child(3){margin-right:3%;}
+            &:nth-child(2){margin-right:0;}
+            &:last-child{margin-right:0;}
+         }
+      }
+      .check{
+         //width:155px;
+         width:25.3%;
+         @include breakPoint(620px){
+            width:62%;
+            margin-bottom:10px;
+         }
+      }
+      .checkOut{
+         //width:167px;
+         width:27.5%;
+         @include breakPoint(620px){
+            width:62%
+         }
+      }
+      .nights{
+         //width:75px;
+         width:16.02%;
+         @include breakPoint(620px){
+            width:30.5%;
+         }
+      }
+   }
+}
+/* --][ main gallery :: mobile ][-- */
+.verticalGallery{
+   width:100%;
+   padding:50px 0;
+   background:url(../images/mob-gallery-bg.png) no-repeat;
+   background-size:cover;
+   h2{
+      font-size:36px;letter-spacing:0.25em; color:$primary-font;text-transform: uppercase;padding-bottom:15px;
+      strong{font-weight:700;letter-spacing:0.25em;}
+      @include breakPoint(430px){
+         letter-spacing:0.05em;
+         strong{letter-spacing:0.05em;}
+      }
+   }
+   .verticalContainer{
+      width:calc(100% - 20px);height: 370px;
+      padding:10px;
+      background:#ffffff;
+      -webkit-box-shadow: 0 0 3px 0 rgba(0,0,0,0.1);
+      -moz-box-shadow: 0 0 3px 0 rgba(0,0,0,0.1);
+      box-shadow: 0 0 3px 0 rgba(0,0,0,0.1);
+      img{height:100%;}
+   }
+   .verticalThumbs{
+      width: 100%; height:93px;
+      margin-top: 10px;
+      cursor: pointer;
+   }
+   .verticalText{
+      margin-top: 30px;
+      padding:35px 0 32px 30px;
+      background: #212121;
+      h3{font-size:26px; letter-spacing:0.1em;color:rgba(255,255,255,0.8);text-transform:uppercase;margin-bottom:5px;}
+      p{font-size:15px;line-height:20px;letter-spacing:0;color:rgba(255,255,255,0.5);}
+   }
+}
+
+/* --][ main hotel service :: mobile ][-- */
+.mobService{
+   padding:60px 0 50px;
+   background:url(../images/mob-service-bg.png) no-repeat;
+   background-size:cover;
+   .majorTitle{
+      padding-bottom:30px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #625c57;
+      @include boxsizing;
+      h3{color:#fff}
+      p{color:rgba(255,255,255,0.7);}
+   }
+   .serviceContainer{
+      width: 100%;height:266px;
+   }
+   .serviceInfo{width:100%;}
+}
+
+/* --][ main life style :: mobile ][-- */
+.mobLife{
+   padding:54px 0 50px;
+   .lifeContainer{
+      margin-top: 32px;
+      li{
+         width:calc(50% - 10px); height:410px;
+         &:nth-child(odd){margin:0 2.8% 50px 0;}
+         &:nth-child(even){margin-top:50px;}
+         .lifeKind{
+            width:69%;max-width:228px;
+            &:before{
+               content:"";
+               width:108%;max-width:248px;
+            }
+         }
+      }
+      .view{top:25%;}
+      .hover > p {top:55%;}
+   }
+   @include breakPoint(540px){
+      .lifeContainer{
+         li{
+            height:350px;
+            &:nth-child(odd){margin:0 4% 50px 0;}
+         }
+      }
+   }
+   @include breakPoint(450px){
+      .lifeContainer li{
+         float:none;
+         width:100%; max-width:330px;
+         height:100%;
+         &:nth-child(odd){margin:0 auto 50px;}
+         &:nth-child(even){margin:0 auto 50px;}
+         &:last-child{margin:0 auto;}
+      }
+   }
+}
+
+/* --][ main membership :: mobile ][-- */
+.mobMembership{
+   padding:50px 0;
+   background:url(../images/mob-membership-bg.png) no-repeat;
+   background-size:cover;
+   .majorTitle{
+      h3{color:#fff}
+      p{color:rgba(255,255,255,0.7);}
+   }
+   .benefitWrap{
+      margin-top: 63px;
+      .benefit{
+         width:230px;
+         margin:0 auto 50px;
+         text-align: center;
+         &:last-child{margin:0 auto;}
+         >span{margin-bottom:10px;}
+         a{
+            margin-bottom:40px;
+         }
+      }
+   }
+}
+
+/* --][ main companyInfo :: pc ][-- */
+.companyInfo{
+   .container{
+      padding:80px 0 70px;
+   }
+   .infoList li{
+      width:25%;
+      border-right: 1px solid #d6d6d6;
+      &:last-child{border-right:none;}
+   }
+}
+.infoList{
+   width: 100%;
+   li{
+      text-align: center; font-family:"notoK";
+      float:left;
+      @include boxsizing;
+      img{display: inline-block;}
+      span{display:block;padding:14px 0;font-size:20px; line-height:20px; letter-spacing:0; color:#343434;}
+      p{font-size:15px;line-height:22px;letter-spacing:-0.030em;color:#616161;}
+   }
+}
+.mobInfo{
+   padding:66px 0 95px;
+   .infoList{
+      li{
+         width:50%;height:140px;
+         &:nth-child(1){border-bottom:1px solid #d6d6d6; border-right:1px solid #d6d6d6;}
+         &:nth-child(2){border-bottom:1px solid #d6d6d6;}
+         &:nth-child(3){border-right:1px solid #d6d6d6;}
+         //여백조정
+         &:nth-child(4) img{padding-top:12px;}
+         &:nth-child(3) img{padding-top: 22px;}
+         &:nth-child(2) p{padding-top: 5px;}
+      }
+   }
+   @include breakPoint(550px){
+      .infoList li{
+         width:100%;
+         float:none;
+         img{padding-top:13px!important;}
+         &:nth-child(1){border-top:1px solid #d6d6d6;}
+         &:nth-child(3),&:nth-child(1){border-right:none;}
+         &:nth-child(3),&:nth-child(4){border-right:none;border-bottom:1px solid #d6d6d6;}
+      }
+   }
+}
+.mobsearchBtn{
+   width:100%;
+   background:#3c2a19;
+   padding:14px 0;
+   margin-top: 10px;
+   a{
+      display: block;
+      text-align: center;
+      img{display:inline-block;vertical-align:middle;}
+      p{display:inline-block;font-size:24px;vertical-align:middle;color:rgba(255,255,255,0.6);}
+   }
+   @media all and (min-width:721px) and (max-width:1920px){display:none;}
+   @include breakPoint($mobilePoint){display:block;}
+}

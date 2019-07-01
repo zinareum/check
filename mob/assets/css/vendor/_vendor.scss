@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+//3. mobile main visual swiper slider
+.mobVisual{
+   .swiper-button-prev,.swiper-button-next{
+      position: absolute;top:38%;
+      width: 60px;height: 60px;
+      @include breakPoint(340px){display:none;}
+   }
+   .swiper-button-prev{left:20px;}
+   .swiper-button-next{right:20px;}
+   .swiper-pagination{
+      position: absolute; top:54%; left:50%; transform:translateX(-50%);
+      width:100%;height:auto;
+      text-align: center;
+      .swiper-pagination-bullet{
+         display: inline-block;
+         width: 15px;height: 15px;
+         margin-right:9px;
+         border-radius: 50%;
+         background:rgba(255,255,255,0.5);
+         &:first-child{margin-left:0;}
+         &:last-child{margin-right:0;}
+         &.swiper-pagination-bullet-active{
+            position: relative;
+            background:rgba(255,255,255,1);
+            &:after{
+               content:"";
+               position: absolute; top:-4px; left:-4px;
+               width:21px; height:21px; border-radius:50%;
+               border:1px solid #fff;
+            }
+         }
+      }
+      @include breakPoint(450px){
+         top:49%;
+      }
+   }
+   .swiper-container-horizontal > .swiper-pagination-bullets{
+      .swiper-pagination-bullet{margin:0 8px;}
+   }
+}
+// 4.mobile main gallery swiper slider
+.verticalGallery{
+   /* slide scss */
+   .verticalContainer{
+      .vertical-button-next,.vertical-button-prev{
+         position: absolute;
+         top:50%; transform:translateY(-50%);
+         z-index:5;
+      }
+      .vertical-button-prev{left:11px;}
+      .vertical-button-next{right:11px;}
+   }
+   .verticalThumbs{
+      .swiper-wrapper{
+         height:100%;
+         .swiper-slide{
+            width:calc(50% - 5px)!important;height:100%!important;
+            img{height:100%;border:1px solid #cccccc;box-sizing:border-box;}
+         }
+      }
+   }
+}
+//5. mobile main hotel service swiper
+.serviceContainer{
+   .swiper-wrapper{
+      width:100%;height:243px;
+      margin-bottom: 11px;
+      img{height:100%;}
+   }
+   .service-pagination{
+      position: absolute;top:95%;
+      width: 100%; height:13px;
+      text-align: center;
+      span{
+         display: inline-block;
+         width: 12px; height:100%;
+         margin-right: 5px;
+         background: #e8dfcc;
+         &:last-child{margin-right:5px;}
+      }
+      .swiper-pagination-bullet{
+         &.swiper-pagination-bullet-active{
+            background:#977452;
+         }
+      }
+   }
+}
+//6. mobile sub gallerylist swiper
+.mgContainer{
+   .mg-button-next,.mg-button-prev{
+      position: absolute;
+      top:50%; transform:translateY(-50%);
+      z-index:5;
+   }
+   .mg-button-prev{left:0;}
+   .mg-button-next{right:0;}
+}

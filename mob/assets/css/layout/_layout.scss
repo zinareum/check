@@ -1,0 +1,402 @@
+@charset "UTF-8";
+
+/* --][ mobile layout ][-- */
+body, html {
+   font-family: "Lato", "notoK", Arial, "맑은고딕", Dotum, "돋움", "굴림";
+   font-weight:400;
+   color:$primary-font;
+   letter-spacing: -0.040em;
+   -webkit-font-smoothing: antialiased;
+   text-size-adjust: 100%;
+   -webkit-text-size-adjust: 100%;
+   -moz-text-size-adjust: 100%;
+   -ms-text-size-adjust: 100%;
+}
+
+.innerContainer {
+   width: 100%;
+   padding: 0 20px;
+   @include boxsizing;
+   @include breakPoint(440px){
+      padding:0 15px;
+   }
+}
+
+// mobile gnb 클릭시 스크롤방지
+body.band {
+   position: relative;
+   height: 100%;
+   overflow: hidden;
+}
+
+/* --][ mobile sub 공통 ][-- */
+.mobsubTop{
+   .subTitle{padding:100px 0 10px;}
+   h2{font-size:26px; padding-bottom:25px;}
+}
+.mobContents{
+   padding:50px 0 100px;
+}
+.mobSubname{
+   text-align: center;
+   margin-bottom: 50px;
+   .icon{display: inline-block; margin-bottom:6px;}
+   h3{font-family:"notoK";font-size:28px;letter-spacing:0;color:#272727;text-transform:uppercase;}
+}
+
+/* --][ sub gallery :: mob/gallery.html ][-- */
+.mgContainer{margin-top: 30px;}
+.galleryInfo{
+   padding:50px 45px 65px;
+   border-top: 1px solid $primary-font;
+   border-left:1px solid #ccc;
+   border-right:1px solid #ccc;
+   border-bottom:1px solid #ccc;
+   @include boxsizing;
+   > div{
+      display:table;
+      width:100%;
+      margin-bottom: 40px;
+      &:last-child{margin-bottom:0;}
+      > h5{ display:table-cell;width:20%;min-width:90px;font-family:"notoK";font-size:18px;font-size:1.125rem;font-weight:700;letter-spacing:-0.025em;line-height:20px;color:$primary-font;}
+   }
+   .peakbottom{padding-bottom:50px; border-bottom:1px solid #ccc; @include boxsizing;}
+   @include breakPoint(530px){
+      padding:50px 5% 65px;
+   }
+   @include breakPoint(345px){
+      > div > h5{
+         width:28%; min-width:0;
+         font-size:1rem;
+      }
+   }
+}
+/* --][ sub qna :: mob/qna.html ][-- */
+.searchWrap{
+   width: 100%; height:40px;
+   margin-bottom: 30px;
+}
+.dropbox{
+   position: relative;
+   width:86px; height:100%;
+   background:#fff;
+   float:left;
+   .defaultValue{
+      width:100%;height:100%;
+      padding:0 7px;
+      border:1px solid #cccccc;
+      @include boxsizing;
+      @include clearfix;
+      .optionText{
+         display: inline-block;
+         font-size:15px;line-height:40px;letter-spacing:-0.025em;color:#999999;
+         float:left;
+      }
+      img{margin-top:16px;float:right;}
+   }
+   .options{
+      position: absolute; top:100%;left:0;
+      display: none;
+      width:100%;
+      padding:5px 0;
+      background:#fff;
+      li{
+         padding-left:5px;
+         line-height:25px;
+         span{font-size:15px; color:#999;}
+      }
+      &.active{display:block;}
+   }
+}
+.enter{
+   width:calc(100% - 91px); height:40px;
+   margin-left:5px;
+   border:1px solid #ccc;
+   float:left;
+   @include boxsizing;
+   .typing{
+      display: block;
+      width:calc(100% - 65px);height:100%;
+      float:left;
+      input[type="text"]{
+         width:100%;height:100%;background:#ffffff;
+      }
+   }
+   .search{
+      display: block;
+      width:65px; height:100%;
+      line-height:40px;
+      background:$primary-font;
+      border-left:1px solid #ccc;
+      @include boxsizing;
+      span{
+         font-size:18px;font-size:1.125rem; color:#fff;
+      }
+   }
+}
+
+.write{
+   width:84px; height:40px;
+   margin-bottom: 30px;
+   padding:0 7px;
+   background:#333;
+   border: 1px solid #ccc;
+   float:right;
+   @include boxsizing;
+   img{
+      vertical-align:unset;
+   }
+   .text{
+      font-size:15px;color:#fff;line-height:40px;
+   }
+}
+/* --][ sub qna :: mob/qnaview.html ][-- */
+.about_container{
+   position: relative;
+   width: 100%;
+   margin-top: 36px;
+   text-transform: uppercase;
+   @include breakPoint(992px){
+      width: 100%; padding-left: 0;
+   }
+}
+.online_view{
+   width: 100%; margin: 0 auto 20px;
+   border-top: 1px solid #666666; border-bottom: 1px solid #666666;
+   vertical-align: middle; transition: all 300ms; cursor: pointer;
+   table{
+      tr{
+         width: 100%; height: 50px;
+         border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;
+         th{
+            width: 20%; background: #fafafa;
+            > span{
+               font-family: "nanumsquare"; font-size:15px; font-size:0.9375rem; font-weight:700; color:#333;
+            }
+            @include breakPoint(410px){
+               font-size: 12px;
+            }
+         }
+         td{
+            width: 80%; padding-left: 3%; font-size: 14px; color: #999999; font-family:"nanumsquare";
+         }
+         .view_input{
+            font-size: 13px;
+            input{
+               width: 30%; height: 25px!important;
+               display: inline-block; padding-left: 0;
+               border:1px solid #ccc;
+               @include breakPoint(640px){
+                  width: 60%; display: block; margin-bottom: 3px;
+               }
+            }
+            @include breakPoint(640px){
+               padding:7px 0 7px 3%;
+            }
+            @include breakPoint(410px){
+               font-size: 10px;
+            }
+         }
+
+      }
+   }
+   .exception{
+      width: 100%; border-top: 0; border-bottom: 0;
+
+      >td{
+         width:100%!important;padding:50px 0 50px 0;
+         @include breakPoint(720px){
+            padding:60px 20px;
+         }
+      }
+      .view_content{
+         width: 100%; box-sizing: border-box;
+         .view_text{
+            color: #999; line-height:25px; font-family:"nanumsquare";
+         }
+         .view_img{
+            box-sizing: border-box;
+            @include breakPoint(540px){
+               img{
+                  width: 80%;
+               }
+            }
+         }
+      }
+   }
+}
+.addfile{
+   a{
+      height: 20px; background: url(../images/clip.png) 0 -2px no-repeat;
+      padding-left: 15px; padding-bottom: 4px;
+      color: #999;
+   }
+}
+.list{
+   max-width: 80px; max-height: 30px; border: 1px solid #ccc;
+   background: #fff; text-align: center; padding: 8px;
+   color: #666;
+   float:left;
+   @include breakPoint(720px){
+      float: left;
+   }
+   .list_text{
+      padding-left: 5px;
+   }
+}
+/* --][ sub qna :: mob/faqwrite.html ][-- */
+.online_content{
+   width: 100%; margin: 0 auto 20px;
+   vertical-align: middle; transition: all 300ms;
+   border-top: 1px solid #666; border-bottom: 1px solid #666;
+   table{
+      tr{
+         width: 100%; height: 50px;
+         border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;
+         th{
+            width: 22%; background: #eee; font-size: 16px;
+            @include breakPoint(410px){
+               font-size: 12px;
+            }
+         }
+         td{
+            padding-left: 2%; font-size: 13px;
+            input{
+               height: 28px; border: 1px solid #ccc;
+            }
+            #subject,#email{
+               width: 70%;
+               @include breakPoint(640px){
+                  width: 90%;
+               }
+            }
+            #name,#password{
+               width: 40%;
+               @include breakPoint(640px){
+                  width: 90%;
+               }
+            }
+            #attachment{
+               width:40%;
+               display: inline-block; font-size: 13px;
+               text-indent: 7px;
+               box-sizing: border-box; color: #999;
+               @include breakPoint(640px){
+                  width: 68%;
+               }
+            }
+            .addfiles{
+               width: 14%; min-width: 63px; height:28px;
+               padding:0; display: inline-block;
+               border: 1px solid #ccc; background-color: #999;color:white;
+               vertical-align: bottom;
+               -webkit-box-sizing: border-box;
+               -moz-box-sizing: border-box;
+               box-sizing: border-box;
+            }
+            @include breakPoint(410px){
+               #button{
+                  width: 30%;
+               }
+            }
+         }
+      }
+   }
+}
+.btnWrap{
+   text-align: center;
+   >div{
+      display: inline-block;
+      padding: 5px 7px;
+      line-height:20px;text-align: center;
+      border:1px solid #ccc; box-sizing:border-box;
+   }
+}
+
+//리스트 데이터 없을 경우
+.nonedata {
+   p {
+      padding: 50px 0;
+      font-size: 16.5px !important;
+      color: $primary-font !important;
+      font-weight: 700;
+   }
+}
+
+/* --][ sub FAQ list :: faqlist.html ][-- */
+
+/* mobile control scss */
+.mobreserve{
+   .writeWrap{
+      >button {
+         &:last-child{margin-left:10px;}
+      }
+   }
+}
+/* mobile 버전 inquiry , faq write form table */
+@include breakPoint($mobilePoint){
+   .cmmnInput , .cmmnSelect{height:40px;}
+   .boardView{
+      table{
+         tr{
+            th{width:25%; min-width:125px;}
+            td{
+               width:calc(75% - 16px);
+               padding:5px 8px;
+            }
+         }
+      }
+   }
+   .boardReserve{
+      .basic{width:30.5%;max-width:100%;}
+   }
+   //이메일 타입 - mob
+   .addresstype {
+      .firstaddr{
+         width:calc(100% - 90px)!important;
+      }
+      .find-addr{height:40px;line-height:38px;}
+   }
+}
+@include breakPoint(640px){
+   .boardReserve .basic{width:50%;}
+   //3.이메일형 - mob
+   .emailtype{
+      .firstmail{width:calc(100% - 30px);}
+      .middlemail , .othermail{width:48%;}
+      .middlemail{margin:5px 0;}
+   }
+   //4. 전화번호형 - mob
+   .callnumtype{
+      .choicenum{width:calc(100% - 30px);}
+      .middlenum , .lastnum{width:46%;}
+      .middlenum{margin:5px 0;}
+   }
+}
+@include breakPoint(440px){
+   .boardView{
+      table{
+         tr{
+            th{width:20%; min-width:115px;}
+            td{
+               width:calc(80% - 16px);
+               padding:5px 8px;
+            }
+         }
+      }
+   }
+   .boardReserve .basic{width:60%;}
+   //주소형
+   .addresstype .find-addr{margin-left:0;}
+   //3.이메일형 - mob
+   .emailtype{
+      .middlemail , .lastmail{width:98%;}
+   }
+   //4. 전화번호형 - mob
+   .callnumtype{
+      .choicenum{width:calc(100% - 30px);}
+      .middlenum{width:calc(100% - 30px);}
+      .lastnum{width:100%;}
+   }
+
+}

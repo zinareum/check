@@ -1,0 +1,84 @@
+@charset "utf-8";
+
+/* --][ mobile mixin ][-- */
+//media query breaking point
+@mixin breakPoint($point:null, $minpoint:0px) {
+   @media all and ( min-width: #{$minpoint} ) and ( max-width: #{$point} ) {
+      @content;
+   }
+}
+
+/*variables*/
+$tabletPoint:990px;
+$mobilePoint:720px;
+// primary color
+$primary-font:#333;
+$primaryWhite:#ffffff;
+$primaryGray:#cccccc;
+$secondGray:#666666;
+$thirdGray:#999999;
+$inputBorder:#d1d1d1;
+// theme's related color
+$themeColor:#977a52;
+$header:rgba(0,0,0,0.7);
+$must:#8a1515;
+
+//common mixin
+@mixin boxsizing{
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
+
+// Abbreviation :: 말줄임처리
+@mixin abbreviation {
+   overflow: hidden;
+   text-overflow:ellipsis;
+   white-space:nowrap;
+}
+@mixin clearfix{
+   &:after{
+      content:"";
+      display:block;
+      clear:both;
+   }
+}
+@mixin basicSelect{
+   -webkit-appearance: menulist;
+   -moz-appearance: menulist;
+}
+
+//hover mixin
+
+@mixin opacity {
+   -webkit-transition: opacity 250ms ease;
+   -moz-transition: opacity 250ms ease;
+   -ms-transition: opacity 250ms ease;
+   -o-transition: opacity 250ms ease;
+   transition: opacity 250ms ease;
+}
+@mixin bg-font {
+   -webkit-transition: color 250ms , background 250ms;
+   -moz-transition: color 250ms , background 250ms;
+   -ms-transition: color 250ms , background 250ms;
+   -o-transition: color 250ms , background 250ms;
+   transition: color 250ms , background 250ms;
+}
+@mixin letter{
+   letter-spacing:-0.025em;
+}
+//반응형 - 여백
+@mixin middle{
+   margin-bottom:5px;
+}
+
+%clearfix {
+   &:after {
+      content: "";
+      display: block;
+      clear: both;
+   }
+}
+.fr{float:right;}
+.fl{float:left;}
+.en{font-family:"Lato";}

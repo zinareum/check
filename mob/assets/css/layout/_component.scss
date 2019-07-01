@@ -1,0 +1,384 @@
+@charset "UTF-8";
+
+/* --][ mobile component ][-- */
+
+.majorTitle,.subTitle{
+   font-family:"notoK";
+   text-align: center;
+   .icon{display: inline-block;}
+   h3{font-size:30px;letter-spacing:0.25em;color:#272727;text-transform:uppercase; }
+}
+.majorTitle{
+   h3{margin:20px 0 30px;}
+   p{font-size:15px;letter-spacing:0;line-height:22px;color:#434343;}
+}
+.subTitle{
+   h3{margin:10px 0 50px;}
+}
+.align{text-align:left!important;}
+.block{display:block;}
+.mtb{margin:5px 0;}
+.white{color:#fff;}
+.subIn{width:1020px; margin:0 auto;}
+.insert{display: inline-block;vertical-align:middle;color:$secondGray;font-size:14px;}
+.must{
+   &:before{
+      content:"*";
+      display: inline-block;
+      margin-right:2px;
+      font-size:15px; color:$must;
+      vertical-align: middle;
+   }
+}
+.mobTitle{
+   h3{margin:13px 0 30px;}
+   @include breakPoint(430px){
+      h3{
+         letter-spacing:0.05em;
+         strong{letter-spacing:0.05em;}
+      }
+   }
+}
+
+/* popup */
+.popup_area{
+   position: relative; z-index: 10;
+   display: none;
+   &:before{
+      content:""; display: block;
+      width: 100%; height: 100%;
+      position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+      background: rgba(0,0,0,0.2);
+   }
+}
+.popup{
+   position: fixed; top:-40%; right: 0; bottom: 0; left:0;
+   width:100%; max-width: 400px; height:max-content;
+   display: none;
+   margin: auto;
+   border: 4px solid #333;background: #fff;
+   z-index: 15;  overflow-y: hidden;
+   .popup_title{
+      height: 30px;padding: 10px 12px 0;
+      font-size: 15px; color: #fff; background: #333;
+   }
+   .popup_close{
+      position: absolute; top: 0; right: 10px;
+      cursor: pointer;
+   }
+   &>div{
+      padding: 33px 0 20px;box-sizing: border-box;
+      background: #fff; text-align: center;
+   }
+   .popup_search{
+      span{
+         display: block;font-size: 13px;
+         color: #666;text-align: center;
+         &:first-child{
+            padding-bottom: 10px;
+         }
+         strong{
+            font-weight: bold; color: #000;
+         }
+      }
+      p{
+         padding-top: 10px;
+         span{
+            height: 28px; display: inline-block;
+            &:first-child{
+               height: auto;
+            }
+         }
+         .popup_input{
+            width: 50%; margin: 0 1%;
+            border: 1px solid #d1d1d1; box-sizing: border-box;
+         }
+         .popup_button{
+            width: 55px; padding-bottom: 0;
+            background: #666; vertical-align: top;
+            .btn{color:#fff;}
+         }
+      }
+      .ok ,.notok{
+         display: inline-block;
+         width: 50px; height:30px;
+         line-height:30px;
+         text-align: center;
+         border:1px solid #d1d1d1;
+         @include boxsizing;
+         span{
+            font-family:"nanumsquare"; font-size:12px;
+         }
+      }
+      .ok{
+         background:#666666;
+         span{color:#fff;}
+      }
+      .notok{
+         margin-left: 3px;
+         background:#fff;
+         span{color:#666;}
+      }
+   }
+   @include breakPoint(540px){
+      width: 90%;
+   }
+}
+
+.pagination{
+   text-align: center;
+   margin-top: 20px;
+   li{
+      position: relative;
+      display: inline-block;
+      width:30px;height:30px;
+      margin-right: 5px;
+      &:last-child{margin-right:0;}
+      &.on{
+         a{
+            color:$primary-font;
+            &:after{opacity:1;}
+         }
+      }
+      a{
+         display: block; width:100%;height:100%;
+         border:1px solid #cccccc;
+         background: #fff;
+         font-size:15px; line-height:30px; letter-spacing:0; color:$primaryGray;
+         @include boxsizing;
+         &:hover{
+            color:$primary-font;
+            &:after{opacity:1;}
+         }
+         &:after{
+            content:"";
+            position: absolute; top:-1px;left:-1px;
+            display: block;
+            width: calc(100% + 2px); height:calc(100% + 2px);
+            border:2px solid $primary-font;
+            opacity:0;
+            @include boxsizing;
+         }
+      }
+   }
+
+}
+.pageWrite{
+   position: relative;
+   .pcWrite{
+      //position: absolute;
+      //top:0; right:0;
+      display:inline-block;
+      width: auto; height:30px; line-height:28px;
+      margin:30px 0;
+      border:1px solid $primaryGray;
+      text-align: center;
+      float:right;
+      span{padding:0 7px 0 26px;line-height:30px;font-size:15px;letter-spacing:0;}
+   }
+   .pagination{clear:both;}
+}
+
+//글쓰기 , 리스트 , 취소 버튼 감싸는 div
+.writeWrap{
+   text-align: center;
+   > button{
+      display:inline-block;
+      width: auto; height:30px; line-height:28px;
+      border:1px solid $primaryGray;
+      text-align: center;
+      @include boxsizing;
+      span{padding:0 7px 0 26px;line-height:30px;font-size:15px;letter-spacing:0;}
+   }
+}
+//글쓰기 버튼
+.writeBtn{
+   background:url(../images/write.png) , $primary-font;
+   background-repeat: no-repeat;
+   background-position: 7px 50%;
+   span{color:$primaryWhite;}
+}
+//리스트 버튼
+.listBtn{
+   background:url(../images/list.png) , $primaryWhite;
+   background-repeat: no-repeat;
+   background-position: 7px 50%;
+   span{color:$secondGray;}
+}
+.cancelBtn{
+   background:url(../images/cancel.png) , $primaryWhite;
+   background-repeat: no-repeat;
+   background-position: 7px 50%;
+   span{color:$secondGray;}
+}
+
+//file 첨부 버튼
+.file{
+   display: table;
+   width: 70px; height:35px; line-height:35px;
+   background: #999999; color:#fff;text-align:center; letter-spacing:0;
+   border:1px solid #cccccc;
+   cursor: pointer;
+   @include boxsizing;
+   label{cursor: pointer;}
+   .upload{display:none!important;;}
+}
+.fileName{
+   display: inline-block;
+   width:185px;height:35px;line-height:35px;
+   padding-left:10px;
+   background:#fff;
+   border-top:1px solid #ccc;
+   border-bottom:1px solid #ccc;
+   border-left:1px solid #ccc;
+   .fileClose{display:inline-block;height:auto;}
+}
+.fileWrap{
+   @extend %clearfix;
+   >span{float:left;}
+   .fileName{
+      label{margin-right:5px;}
+   }
+}
+// text input
+.cmmnInput{
+   display: inline-block;
+   width: 100%;
+   height:35px;
+   vertical-align:middle;
+   input{
+      width: 100%; height:100%;
+      padding:0 7px;
+      background: #fff;
+      border:1px solid $inputBorder;
+      @include boxsizing;
+   }
+}
+//textarea input
+.cmmnTextarea{
+   padding:7px 0 7px 7px;
+   border:1px solid $inputBorder;
+   background:$primaryWhite;
+   @include boxsizing;
+   textarea{width:100%;height:100%;}
+}
+//select
+.cmmnSelect{
+   display: inline-block;
+   width:100%;height:35px;
+   vertical-align:middle;
+   select{
+      width:100%;height:100%;
+      padding-left:7px;
+      border:1px solid $inputBorder;
+
+      @include boxsizing;
+   }
+}
+//radio 양자택일
+.radios{
+   display: inline-block;
+   vertical-align: middle;
+   //margin-top: 9px;
+   li{
+      display: inline-block;
+      margin-right:10px;
+      &:last-child{margin-right:0;}
+      input[type="radio"]{
+         position: relative;
+         display: inline-block;
+         width: 13px; height:13px; line-height:13px;
+         vertical-align:text-top;
+         &:before{
+            content:"";
+            position: absolute; top:-1px;left:-1px;
+            width:13px;height:13px; line-height:13px;
+            background:$primaryWhite; border:1px solid $primaryGray;
+            border-radius: 50%;
+         }
+         &:checked{
+            &:before{background:#eee;}
+            &:after{
+               content:"";
+               position: absolute;top:3px;left:3px;
+               width:7px;height:7px;
+               border-radius: 50%;
+               background:#000;
+            }
+         }
+      }
+      label{
+         display: inline-block;line-height:15px;
+         font-size:14px; letter-spacing:-0.025em; color:$secondGray; cursor: pointer;
+      }
+   }
+}
+// check box
+.checked{
+   position: relative;
+   display: inline-block; line-height:15px;
+   padding-left: 17px;
+   cursor: pointer;
+   font-size: 15px;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   .thisCheck{
+      position: absolute;
+      width: 0; height:0;
+      opacity: 0;
+      cursor: pointer;
+      &:checked{
+         ~ .checkmark{
+            background:#eee;
+            &:after{display:block;}
+         }
+      }
+   }
+   .checkmark{
+      position: absolute;top:-1px;left: 0;
+      height: 15px;width: 15px;
+      background:#fff;
+      border:1px solid #ccc;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      &:after{
+         content:"";
+         display:none;
+         position: absolute;top:2px;left:4px;
+         width:3px;height:5px;
+         border:solid #333;border-width:0 2px 2px 0;
+         -webkit-transform: rotate(45deg);
+         -moz-transform: rotate(45deg);
+         -ms-transform: rotate(45deg);
+         -o-transform: rotate(45deg);
+         transform: rotate(45deg);
+      }
+   }
+   .text{color:$secondGray;}
+}
+
+.checkedWrap{
+   .checked{
+      display: inline-block;vertical-align: middle;
+      margin-right:10px;
+      &:last-child{margin-right:0;}
+   }
+}
+
+//첨부파일
+.fileWrap{
+   height: 35px;
+   .addfiles{
+      position: relative;
+      display: block;
+      width:90px; height: 35px; line-height:33px;
+      background: $themeColor;
+      text-align: center; cursor: pointer;
+      input[type="file"]{display:none;}
+      span{position: absolute;top:0;left:0;width:98%;height:100%;font-size:16px;color:$primaryWhite;}
+   }
+   .text{color:$secondGray;font-size:14px;}
+}
